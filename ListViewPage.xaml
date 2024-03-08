@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+             xmlns:controls="clr-namespace:Teleriklistviewcrash"
+             x:Class="Teleriklistviewcrash.ListViewPage"
+             Title="ListViewPage">
+    <Grid RowDefinitions="Auto, *">
+        <Button Clicked="Button_Clicked" Text="Reload Items" />
+        <ContentView Grid.Row="1"  x:Name="contentPlaceholder">
+            <telerik:RadListView ItemsSource="{Binding Items}">
+                <telerik:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <telerik:ListViewTemplateCell>
+                            <telerik:ListViewTemplateCell.View>
+                                <controls:ListViewContent />
+                            </telerik:ListViewTemplateCell.View>
+                        </telerik:ListViewTemplateCell>
+                    </DataTemplate>
+                </telerik:RadListView.ItemTemplate>
+                <telerik:RadListView.LayoutDefinition>
+                    <telerik:ListViewLinearLayout Orientation="Vertical" VerticalItemSpacing="2" />
+                </telerik:RadListView.LayoutDefinition>
+            </telerik:RadListView>
+        </ContentView>
+        
+    </Grid>
+</ContentPage>
